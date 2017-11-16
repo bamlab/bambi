@@ -1,5 +1,5 @@
 {
-  "name": "@bam.tech/eslint-config-bambi",
+  "name": "eslint-config-bambi",
   "version": "1.0.0",
   "description":
     "Shared ESLint configs for Node, Web, React Native, and Expo projects",
