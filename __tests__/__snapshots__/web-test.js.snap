@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fixtures/all-00.js 1`] = `
+Object {
+  "errorCount": 0,
+  "fixableErrorCount": 0,
+  "fixableWarningCount": 0,
+  "messages": Array [],
+  "output": "import 'hi';
+
+import a from 'a';
+import { b } from 'b';
+import c, { c1 } from 'c';
+import * as d from 'd';
+
+import e from './e';
+
+@d
+export class Example {
+  static s = {
+    a,
+    b,
+  };
+
+  m = {};
+
+  hi() {
+    _fn();
+  }
+
+  async byeAsync() {
+    _fn(a, b, c, c1, d, e);
+  }
+}
+
+function _fn() {}
+",
+  "warningCount": 0,
+}
+`;
+
+exports[`fixtures/web-native-00.js 1`] = `
+Object {
+  "errorCount": 1,
+  "fixableErrorCount": 0,
+  "fixableWarningCount": 0,
+  "messages": Array [
+    Object {
+      "column": 9,
+      "endColumn": 26,
+      "endLine": 30,
+      "line": 30,
+      "message": "'SharedArrayBuffer' is not defined.",
+      "nodeType": "Identifier",
+      "ruleId": "no-undef",
+      "severity": 2,
+      "source": "    new SharedArrayBuffer(16).slice();",
+    },
+  ],
+  "output": "// @flow
+import React from 'react';
+import { connect } from 'react-redux';
+
+@connect()
+export default class Example extends React.Component {
+  state = {
+    x: 'x',
+    ...{
+      y: 'y',
+    },
+  };
+
+  props: { x: string };
+
+  static getInitialProps() {}
+
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      ...this.state,
+      x: props.x,
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://example.com');
+    new XMLHttpRequest().send();
+    Uint16Array.from([1, 2, 3, 4, 5]);
+    new SharedArrayBuffer(16).slice();
+  }
+
+  shouldComponentUpdate() {}
+
+  render() {
+    return <div>{this.state.x}</div>;
+  }
+
+  _handleWhatever() {}
+}
+",
+  "warningCount": 0,
+}
+`;
+
+exports[`fixtures/web-native-01.js 1`] = `
+Object {
+  "errorCount": 0,
+  "fixableErrorCount": 0,
+  "fixableWarningCount": 0,
+  "messages": Array [
+    Object {
+      "column": 5,
+      "endColumn": 18,
+      "endLine": 8,
+      "line": 8,
+      "message": "Do not use setState in componentDidMount",
+      "nodeType": "MemberExpression",
+      "ruleId": "react/no-did-mount-set-state",
+      "severity": 1,
+      "source": "    this.setState({});",
+    },
+  ],
+  "output": "import React from 'react';
+
+export default class Example extends React.Component {
+  props = { x: 'x' };
+
+  componentDidMount() {
+    alert('uh oh');
+    this.setState({});
+  }
+
+  render() {
+    return <div>{this.props.x}</div>;
+  }
+}
+",
+  "warningCount": 1,
+}
+`;
+
+exports[`fixtures/web-native-02.js 1`] = `
+Object {
+  "errorCount": 0,
+  "fixableErrorCount": 0,
+  "fixableWarningCount": 0,
+  "messages": Array [],
+  "warningCount": 0,
+}
+`;
+
+exports[`message 1`] = `
+"No rules that are unnecessary or conflict with Prettier were found.
+"
+`;
+
+exports[`success 1`] = `true`;
