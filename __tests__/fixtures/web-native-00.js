@@ -25,19 +25,20 @@ export default class Example extends React.Component {
 
   componentDidMount() {
     fetch('http://example.com');
+    this.loadData().then(console.log);
     new XMLHttpRequest().send();
     Uint16Array.from([1, 2, 3, 4, 5]);
     new SharedArrayBuffer(16).slice();
   }
 
+  loadData = async () => {
+    await fetch('http://example.com');
+  };
+
   shouldComponentUpdate() {}
 
   render() {
-    return (
-      <div>
-        {this.state.x}
-      </div>
-    );
+    return <div>{this.state.x}</div>;
   }
 
   _handleWhatever() {}

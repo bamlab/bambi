@@ -12,7 +12,7 @@ module.exports = {
     module: false,
     require: false,
   },
-  plugins: ['babel', 'flowtype', 'import'],
+  plugins: ['babel', 'promise', 'flowtype', 'import'],
   rules: {
     'array-bracket-spacing': ['warn', 'never'],
     'arrow-spacing': ['warn', { before: true, after: true }],
@@ -131,7 +131,16 @@ module.exports = {
     'yield-star-spacing': ['warn', 'after'],
     yoda: ['warn', 'never', { exceptRange: true }],
 
-    'promise/catch-or-return': [2, { terminationMethod: ['done'] }],
+    'promise/always-return': 'error',
+    'promise/no-return-wrap': 'error',
+    'promise/param-names': 'error',
+    'promise/no-native': 'off',
+    'promise/no-nesting': 'warn',
+    'promise/no-promise-in-callback': 'warn',
+    'promise/no-callback-in-promise': 'warn',
+    'promise/avoid-new': 'warn',
+    'promise/no-return-in-finally': 'warn',
+    'promise/catch-or-return': ['error', { terminationMethod: ['done'] }],
 
     'babel/object-curly-spacing': ['warn', 'always', { objectsInObjects: true }],
 
