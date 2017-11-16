@@ -105,6 +105,7 @@ module.exports = {
     'no-useless-rename': 'warn',
     'no-useless-return': 'warn',
     'no-void': 'warn',
+    'no-warning-comments': 1,
     'no-whitespace-before-property': 'warn',
     'no-with': 'warn',
     'object-shorthand': 'warn',
