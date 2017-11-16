@@ -162,5 +162,6 @@ module.exports = {
         'newlines-between': 'ignore',
       },
     ],
+    'import/no-anonymous-default-export': [2, { allowObject: true }],
   },
 };
