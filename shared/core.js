@@ -158,6 +158,7 @@ module.exports = {
     'flowtype/space-before-type-colon': ['warn', 'never'],
     'flowtype/union-intersection-spacing': ['warn', 'always'],
     'flowtype/use-flow-type': 'warn',
+    'flowtype/type-id-match': [2, '([A-Z][a-z0-9]+)+Type$'],
 
     'import/default': 'off',
     'import/export': 'error',
