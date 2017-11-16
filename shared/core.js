@@ -131,6 +131,8 @@ module.exports = {
     'yield-star-spacing': ['warn', 'after'],
     yoda: ['warn', 'never', { exceptRange: true }],
 
+    'promise/catch-or-return': [2, { terminationMethod: ['done'] }],
+
     'babel/object-curly-spacing': ['warn', 'always', { objectsInObjects: true }],
 
     'flowtype/boolean-style': ['warn', 'boolean'],
