@@ -11,7 +11,7 @@
   "keywords": ["eslint-config", "expo", "bam", "react-native"],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bam/bambi.git"
+    "url": "git+https://github.com/bamlab/bambi.git"
   },
   "jest": {
     "testMatch": ["**/__tests__/*-test.js"]
@@ -19,9 +19,9 @@
   "eslintIgnore": ["/__tests__/fixtures/*"],
   "author": "tychota <tychota@users.noreply.github.com>",
   "bugs": {
-    "url": "https://github.com/bam/bambi/issues"
+    "url": "https://github.com/bamlab/bambi/issues"
   },
-  "homepage": "https://github.com/bam/bambi#readme",
+  "homepage": "https://github.com/bamlab/bambi#readme",
   "dependencies": {
     "babel-eslint": "^7.2.3",
     "eslint-config-prettier": "^2.7.0",
