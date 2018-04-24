@@ -12,7 +12,7 @@ module.exports = {
     module: false,
     require: false,
   },
-  plugins: ['babel', 'promise', 'flowtype', 'import'],
+  plugins: ['babel', 'promise', 'flowtype', 'import', 'pocket-fluff'],
   rules: {
     'array-bracket-spacing': ['warn', 'never'],
     'arrow-spacing': ['warn', { before: true, after: true }],
@@ -173,5 +173,13 @@ module.exports = {
       },
     ],
     'import/no-anonymous-default-export': [2, { allowObject: true }],
+    'pocket-fluff/no-dead-code': [
+      'error',
+      {
+        currentEpochTimeMS: Date.now(), // For testing or decoupling from system time.
+        daysBeforeToReport: 15, // For warning/email pass X days before removeby.
+        annotation: '@removeby', // For renaming the annotation. String form of regex match.
+      },
+    ],
   },
 };
