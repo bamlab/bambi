@@ -8,8 +8,8 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require('../../../lib/rules/no-react-unbound'),
-  RuleTester = require('eslint').RuleTester;
+var RuleTester = require('eslint').RuleTester,
+  rule = require('../../../lib/rules/no-react-unbound');
 
 //------------------------------------------------------------------------------
 // Tests
