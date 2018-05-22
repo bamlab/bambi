@@ -21,9 +21,9 @@ module.exports = {
     ],
   },
 
-  create: function(context) {
+  create(context) {
     return {
-      ExpressionStatement: function(node) {
+      ExpressionStatement(node) {
         const expression = node.expression;
 
         if (
