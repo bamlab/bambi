@@ -14,19 +14,13 @@ var rule = require('../../../lib/rules/no-react-unbound'),
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
-const parserOptions = {
-  //ecmaVersion: 8,
-  sourceType: 'module',
-  ecmaFeatures: {
-    experimentalObjectRestSpread: true,
-    jsx: true,
-  },
-  env: { es6: true, jest: true },
+const options = {
+  parser: 'babel-eslint',
 };
 
 require('babel-eslint');
 
-var ruleTester = new RuleTester({ parserOptions });
+var ruleTester = new RuleTester(options);
 ruleTester.run('no-react-unbind', rule, {
   valid: [
     `
@@ -36,6 +30,28 @@ class MyComponent extends React.Component {
 
   setSelectedFilter() {
     console.log(Date.now())
+  }
+
+  render(){ return <div onClick={this.setSelectedFilter} /> }
+}`,
+    `
+import * as React from "react";
+
+class MyComponent extends React.Component {
+
+  setSelectedFilter() {
+    this.callback();
+  }
+
+  render(){ return <div onClick={() => this.setSelectedFilter()} /> }
+}`,
+    `
+import * as React from "react";
+
+class MyComponent extends React.Component {
+
+  setSelectedFilter = () => {
+    this.callback();
   }
 
   render(){ return <div onClick={this.setSelectedFilter} /> }
