@@ -33,13 +33,13 @@
   "dependencies": {
     "babel-eslint": "^8.1.2",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-babel": "^4.1.2",
-    "eslint-plugin-flowtype": "^2.40.1",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-flowtype": "^2.47.1",
+    "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-pocket-fluff": "^1.2.2",
     "eslint-plugin-prettier": "^2.4.0",
     "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-react": "^7.5.1"
+    "eslint-plugin-react": "^7.8.2"
   },
   "devDependencies": {
     "@expo/spawn-async": "^1.3.0",
