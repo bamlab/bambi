@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prevent using unbinded class method as callback of a JSX
+ * @fileoverview Prevent using unbound class method as callback of a JSX
  * @author AmauryLiet
  */
 'use strict';
@@ -13,7 +13,7 @@ var Traverser = require('eslint/lib/util/traverser');
 module.exports = {
   meta: {
     docs: {
-      description: 'Prevent using unbinded class method as callback of a JSX function',
+      description: 'Prevent using unbound class method as callback of a JSX function',
       category: 'Fill me in',
       recommended: false,
     },

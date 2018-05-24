@@ -35,19 +35,30 @@ class MyComponent extends React.Component {
     this.callback();
   };
 
-  handleClick() {
-    this.callback();
-  };
-
   render() {
     return <ChildComponent onClick={this.handleClick} />;
   }
 }
 ```
 
+```js
+import * as React from "react";
+
+class MyComponent extends React.Component {
+
+  handleClick() {
+    this.callback();
+  };
+
+  render() {
+    return <ChildComponent onClick={() => this.handleClick()} />;
+  }
+}
+```
+
 ## When Not To Use It
 
-You might find some edge case where this rule is not yet perfect. For instance when you bind your method in the constructor:
+Function bindings using `function.bind(this)` will be ignored as our project do not use this technique. The rule cannot be used in this case.
 
 ```js
 import * as React from "react";
