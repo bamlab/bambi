@@ -51,8 +51,8 @@ module.exports = {
 
         const results = match(node.parent, n => {
           if (n.type !== 'JSXExpressionContainer') return false;
-          if (n.expression.object.type !== 'ThisExpression') return false;
-          if (n.expression.property.name !== node.key.name) return false;
+          if (!n.expression.object || n.expression.object.type !== 'ThisExpression') return false;
+          if (!n.expression.property || n.expression.property.name !== node.key.name) return false;
           return true;
         });
 
