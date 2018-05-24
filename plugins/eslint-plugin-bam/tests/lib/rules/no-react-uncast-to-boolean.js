@@ -28,7 +28,9 @@ require('babel-eslint');
 
 var ruleTester = new RuleTester({ parserOptions });
 ruleTester.run('no-react-uncast-to-boolean', rule, {
-  valid: ['<View>{this.props.textMaybeEmpty ? <Text>{this.props.textMaybeEmpty}</Text> : null}</View> '],
+  valid: [
+    '<View>{this.props.textMaybeEmpty ? <Text>{this.props.textMaybeEmpty}</Text> : null}</View> ',
+  ],
 
   invalid: [
     {
