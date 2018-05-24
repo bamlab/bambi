@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prevent using unbinded class method as callback of a JSX
+ * @fileoverview Prevent using unbound class method as callback of a JSX
  * @author AmauryLiet
  */
 'use strict';
@@ -21,40 +21,40 @@ const options = {
 require('babel-eslint');
 
 var ruleTester = new RuleTester(options);
-ruleTester.run('no-react-unbind', rule, {
+ruleTester.run('no-react-unbound', rule, {
   valid: [
     `
 import * as React from "react";
 
 class MyComponent extends React.Component {
 
-  setSelectedFilter() {
+  handleClick() {
     console.log(Date.now())
   }
 
-  render(){ return <div onClick={this.setSelectedFilter} /> }
+  render(){ return <div onClick={this.handleClick} /> }
 }`,
     `
 import * as React from "react";
 
 class MyComponent extends React.Component {
 
-  setSelectedFilter() {
+  handleClick() {
     this.callback();
   }
 
-  render(){ return <div onClick={() => this.setSelectedFilter()} /> }
+  render(){ return <div onClick={() => this.handleClick()} /> }
 }`,
     `
 import * as React from "react";
 
 class MyComponent extends React.Component {
 
-  setSelectedFilter = () => {
+  handleClick = () => {
     this.callback();
   }
 
-  render(){ return <div onClick={this.setSelectedFilter} /> }
+  render(){ return <div onClick={this.handleClick} /> }
 }`,
   ],
 
