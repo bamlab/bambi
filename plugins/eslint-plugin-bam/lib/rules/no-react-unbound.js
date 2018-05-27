@@ -24,8 +24,6 @@ module.exports = {
   },
 
   create(context) {
-    // variables should be defined here
-
     //----------------------------------------------------------------------
     // Helpers
     //----------------------------------------------------------------------
@@ -41,32 +39,34 @@ module.exports = {
       });
       return results;
     }
+
     //----------------------------------------------------------------------
     // Public
     //----------------------------------------------------------------------
-
     return {
-      MethodDefinition(node) {
-        const thisUsages = match(node, n => n.type === 'ThisExpression');
-        if (!thisUsages.length) return;
+      MethodDefinition(classMethodNode) {
+        const thisUsagesInMethod = match(
+          classMethodNode,
+          descendantNode => descendantNode.type === 'ThisExpression'
+        );
+        if (!thisUsagesInMethod.length) return;
 
-        const results = match(node.parent, n => {
-          // the node is `this.[method name]`:
-          if (n.type !== 'MemberExpression') return false;
-          if (n.object.type !== 'ThisExpression') return false;
-          if (n.property.name !== node.key.name) return false;
+        const unboundCallsOfTheMethod = match(classMethodNode.parent, descendantNode => {
+          // the node is `this.[class method name]`:
+          if (descendantNode.type !== 'MemberExpression') return false;
+          if (descendantNode.object.type !== 'ThisExpression') return false;
+          if (descendantNode.property.name !== classMethodNode.key.name) return false;
 
           // the method of the node is not called:
-          if (n.parent.type === 'CallExpression') return false;
+          if (descendantNode.parent.type === 'CallExpression') return false;
 
           return true;
         });
 
-        if (results.length) {
-          context.report(node, 'Please bind your function');
+        if (unboundCallsOfTheMethod.length) {
+          context.report(classMethodNode, 'Please bind your function');
         }
       },
-      // give me methods
     };
   },
 };
