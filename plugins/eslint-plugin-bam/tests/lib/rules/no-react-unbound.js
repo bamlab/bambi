@@ -56,6 +56,33 @@ class MyComponent extends React.Component {
 
   render(){ return <div onClick={this.handleClick} /> }
 }`,
+    `
+import * as React from "react";
+
+class MyComponent extends React.Component {
+  handleClick() {
+    this.callback();
+  }
+
+  render(){
+    const boundMethod = () => this.handleClick();
+    return <div
+      onClick={boundMethod}
+    /> }
+}`,
+    `
+import * as React from "react";
+
+class MyComponent extends React.Component {
+  handleClick() {
+    this.callback();
+  }
+
+  render(){
+    return <div
+      value={this.getValue()}
+    /> }
+}`,
   ],
 
   invalid: [
@@ -75,6 +102,48 @@ class MyComponent extends React.Component {
         {
           message: 'Please bind your function',
           type: 'MethodDefinition',
+        },
+      ],
+    },
+    {
+      code: `
+import * as React from "react";
+
+class MyComponent extends React.Component {
+  handleClick() {
+    this.callback();
+  }
+
+  render(){
+    const renamedMethod = this.handleClick;
+    return <div
+      onClick={renamedMethod}
+    /> }
+}`,
+      errors: [
+        {
+          message: 'Please bind your function',
+        },
+      ],
+    },
+    {
+      code: `
+import * as React from "react";
+
+class MyComponent extends React.Component {
+  handleClick() {
+    this.callback();
+  }
+
+  render(){
+    const unboundMethod = this.props.clickable ? this.handleClick : () => {};
+    return <div
+      onClick={unboundMethod}
+    /> }
+}`,
+      errors: [
+        {
+          message: 'Please bind your function',
         },
       ],
     },

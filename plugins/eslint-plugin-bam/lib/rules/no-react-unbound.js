@@ -33,8 +33,9 @@ module.exports = {
       var results = [];
       Traverser.traverse(ast, {
         enter(node, parent) {
-          if (condition(node)) {
-            results.push(node);
+          let nodeWithParent = { ...node, parent };
+          if (condition(nodeWithParent)) {
+            results.push(nodeWithParent);
           }
         },
       });
@@ -50,9 +51,14 @@ module.exports = {
         if (!thisUsages.length) return;
 
         const results = match(node.parent, n => {
-          if (n.type !== 'JSXExpressionContainer') return false;
-          if (!n.expression.object || n.expression.object.type !== 'ThisExpression') return false;
-          if (!n.expression.property || n.expression.property.name !== node.key.name) return false;
+          // the node is `this.[method name]`:
+          if (n.type !== 'MemberExpression') return false;
+          if (n.object.type !== 'ThisExpression') return false;
+          if (n.property.name !== node.key.name) return false;
+
+          // the method of the node is not called:
+          if (n.parent.type === 'CallExpression') return false;
+
           return true;
         });
 
