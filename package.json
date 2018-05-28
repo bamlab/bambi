@@ -39,7 +39,8 @@
     "eslint-plugin-pocket-fluff": "^1.2.2",
     "eslint-plugin-prettier": "^2.4.0",
     "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-react": "^7.8.2"
+    "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-bam": "^1.1.0"
   },
   "devDependencies": {
     "@expo/spawn-async": "^1.3.0",
