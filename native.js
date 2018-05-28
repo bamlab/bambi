@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['./shared/core.js', './shared/react.js', './shared/prettier.js'],
+  extends: ['./shared/core.js', './shared/react.js', './shared/prettier.js', './shared/bamSpecific.js'],
   globals: {
     __DEV__: false,
     Atomics: false,
