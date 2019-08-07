@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-bambi",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "Shared ESLint configs for Node, Web, React Native, and Expo projects",
   "main": "default.js",
   "scripts": {
@@ -31,10 +31,10 @@
   },
   "homepage": "https://github.com/bamlab/bambi#readme",
   "dependencies": {
-    "babel-eslint": "^8.1.2",
+    "babel-eslint": "^10.0.2",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-babel": "^5.1.0",
-    "eslint-plugin-flowtype": "^2.47.1",
+    "eslint-plugin-flowtype": "^3.13.1",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-pocket-fluff": "^1.2.2",
     "eslint-plugin-prettier": "^2.4.0",
